@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Produk qolyu.co</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+    }
+    .header {
+      background-color: #ff5722;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .search-box {
+      margin-top: 10px;
+    }
+    .search-box input {
+      padding: 8px;
+      width: 80%;
+      max-width: 300px;
+      border: none;
+      border-radius: 4px;
+    }
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      background: #fff3e0;
+    }
+    .categories button {
+      background-color: #fff;
+      border: 1px solid #ff5722;
+      color: #ff5722;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product p {
+      margin: 10px 0 5px;
+      font-size: 14px;
+    }
+    .product .number {
+      font-weight: bold;
+      color: #777;
+    }
+    .product a {
+      display: inline-block;
+      background-color: #ff5722;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 5px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>Katalog Produk qolyu.co</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari nomornya di atas..." onkeyup="filterProducts()">
+    </div>
+  </div>  <div class="categories">
+    <button>Parfum</button>
+    <button>Jam</button>
+    <button>Fashion</button>
+    <button>Elektronik</button>
+  </div>  <div class="grid-container" id="productGrid">
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="Produk 1">
+      <p class="number">770. Nama Produk 1</p>
+      <a href="#">Beli di Shopee</a>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="Produk 2">
+      <p class="number">769. Nama Produk 2</p>
+      <a href="#">Beli di Shopee</a>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="Produk 3">
+      <p class="number">768. Nama Produk 3</p>
+      <a href="#">Beli di Shopee</a>
+    </div>
+  </div>  <script>
+    function filterProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const products = document.getElementsByClassName("product");
+      for (let i = 0; i < products.length; i++) {
+        const text = products[i].innerText.toLowerCase();
+        products[i].style.display = text.includes(input) ? "block" : "none";
+      }
+    }
+  </script></body>
+</html>
