@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Produk</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #a1866f, #ffffff);
+      color: black;
+    }
+    header {
+      padding: 1rem;
+      text-align: center;
+      background-color: #fff;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      color: black;
+    }
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .search-container {
+      padding: 1rem;
+      text-align: center;
+    }
+    .search-container input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .product-card {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .product-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.4rem 1rem;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CARI NOMORNYA DI ATAS⬆️</h1>
+    <p>scroll dan klik gambar produk yang kalian cari sesuai nomor link yang ada di vidio.</p>
+  </header>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProducts()" />
+  </div>
+  <div class="product-grid" id="productGrid">
+    <div class="product-card">
+      <p>001.Bitsnbobs76 Emotionally Jersey Oversize White | BNB  Green</p>
+      <a href="https://id.shp.ee/6vgfN9B">Beli di Shopee</a>
+    </div>
+<!-- PRODUK-PRODUK SELANJUTNYA AKAN DISISIPKAN DI SINI -->
+  </div>
+
+  <script>
+    const products = [
+      { name: "002.Pluviophile - Celana Baggy Jeans Wide Leg Blackwash Strip", link: "https://id.shp.ee/Fi29jem" },
+      { name: "003.BAGGY PANTS DENIM CHARCOAL V2 MOODDAY PROJECT", link: "https://shopee.co.id/product/90504780/26471466142?channel_code=MyCollection&uls_trackid=52gs0gpg000t" },
+      { name: "004.Zeintin - Snakers Full Black Sepatu Sneakar Pria Sepatu Sekolah BL", link: "https://s.shopee.co.id/9zkYMHYuUZ" },
+      { name: "005.Hoodie Boxy 'Calm Dealer' By Pain Department", link: "https://s.shopee.co.id/6AXpnLF7ar" },
+      { name: "006.Adidas Samba OG White Gum", link: "https://s.shopee.co.id/5fbZCZEDLy" },
+      { name: "007.OMJINS Celana Cargo Pants Camo Loreng", link: "https://s.shopee.co.id/3LDeQNTTNq" },
+      { name: "008.WORKSHIRT NOT CRY | WE COME FROM PAINI", link: "https://shopee.co.id/product/771758513/23949130994?channel_code=MyCollection" },
+      { name: "009.Wewalk Footwear - Sneakers Unisex", link: "https://s.shopee.co.id/50LsPfueqO" },
+      { name: "010.Scommer Long Pants Denim Naomi Black", link: "https://s.shopee.co.id/6VAgCV9fqX" },
+      { name: "011.Fairgoods Kaos Oversize Stripe Brown", link: "https://shopee.co.id/product/95304599/25231616008?channel_code=MyCollection" },
+      { name: "012.Baggy jeans black washed", link: "https://s.shopee.co.id/1Vm0OZYQYz" },
+      { name: "013.Roofair T-shirt Boxy Black Mind", link: "https://s.shopee.co.id/5VI9A5AHNg" },
+      { name: "014.Timberland 6 Inch Premium Boots", link: "https://s.shopee.co.id/1B9A0Ii3Xx" },
+      { name: "015.Gloaming Kemeja Flanel Calestia", link: "https://s.shopee.co.id/7V3Db4CFb5" },
+      { name: "016.New Balance 530 White Silver Navy", link: "https://s.shopee.co.id/4L6BrLOj6e" },
+      { name: "017.Epidemic Long Chino Pants Cream", link: "https://s.shopee.co.id/AA3yoECEGw" },
+      { name: "018.Heyfreak T-shirt Oversize Shatsu V2", link: "https://s.shopee.co.id/VtTJtcmyT" },
+      { name: "019.PRIME - WORKPANTS DARK BROWN", link: "https://s.shopee.co.id/gCtWVmYke" },
+      { name: "020.Converse Chuck 70 OX Unisex Black", link: "https://s.shopee.co.id/7V3DfSUAtM" },
+      { name: "021.WISED | WATSON BLACK | WORK PANTS", link: "https://s.shopee.co.id/50Lu1iEOvj" },
+      { name: "022.CELANA TIMEBOMB REGULAR CUT", link: "https://s.shopee.co.id/706yQP89K2" },
+      { name: "023.Hammerstout - Celana Chino Workpants - Trosa", link: "https://s.shopee.co.id/5KykRuHXh0" },
+      { name: "024.Treadless | Barnes Brown | Regular Work Pants", link: "https://s.shopee.co.id/7AQOdg9XT1" },
+    ];
+
+    const grid = document.getElementById("productGrid");
+    products.forEach((product) => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `<p>${product.name}</p><a href="${product.link}" target="_blank">Beli di Shopee</a>`;
+      grid.appendChild(card);
+    });
+
+    function searchProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".product-card");
+      cards.forEach(card => {
+        const match = card.textContent.toLowerCase().includes(input);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
